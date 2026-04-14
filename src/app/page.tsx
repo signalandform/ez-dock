@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <div>
       <section className="bg-sky-950 text-white">
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-16 md:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-16 md:grid-cols-2 md:items-start">
           <div className="space-y-5">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-300">
               Commitment to service
@@ -106,7 +106,7 @@ export default function Home() {
               alt="Residential floating dock installation"
               width={1000}
               height={667}
-              className="h-64 w-full rounded-2xl object-cover ring-1 ring-sky-400/30 md:h-full"
+              className="h-64 w-full rounded-2xl object-cover ring-1 ring-sky-400/30 md:h-[30rem]"
               priority
             />
             <div className="rounded-2xl bg-sky-900/70 p-6 ring-1 ring-sky-400/30">
