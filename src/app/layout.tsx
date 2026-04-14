@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 
@@ -32,13 +33,23 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
         <header className="border-b border-slate-200 bg-white">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/ezdock/logo.png"
+                alt="EZ Dock Texas logo"
+                width={120}
+                height={42}
+                className="h-10 w-auto"
+                priority
+              />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                 EZ Dock Texas Demo
-              </p>
-              <p className="text-sm text-slate-600">
-                Floating docks built to last, made in the USA
-              </p>
+                </p>
+                <p className="text-sm text-slate-600">
+                  Floating docks built to last, made in the USA
+                </p>
+              </div>
             </div>
             <nav className="flex flex-wrap items-center gap-4 text-sm font-medium">
               <Link href="/" className="text-slate-700 hover:text-sky-700">

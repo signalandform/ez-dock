@@ -1,3 +1,11 @@
+import Image from "next/image";
+
+type ProductCard = {
+  title: string;
+  description: string;
+  image?: string;
+};
+
 export default function Home() {
   const applications = [
     "PWC Docks",
@@ -10,11 +18,12 @@ export default function Home() {
     "Floating Dock Rentals",
   ];
 
-  const products = [
+  const products: ProductCard[] = [
     {
       title: "Dock Sections",
       description:
         "Create custom dock configurations with sturdy modular platform options.",
+      image: "/images/ezdock/dock-sections.jpg",
     },
     {
       title: "Dock Packages",
@@ -25,31 +34,37 @@ export default function Home() {
       title: "PWC Ports",
       description:
         "Drive-on PWC lifts designed for quick launch and dry storage between rides.",
+      image: "/images/ezdock/pwc-ports.jpg",
     },
     {
       title: "EZ BoatPort",
       description:
         "Drive-on, drive-off floating boat docks built for convenience and protection.",
+      image: "/images/ezdock/boatport.jpg",
     },
     {
       title: "Kayak Launch",
       description:
         "Stable launch systems with easy entry and exit for kayaks and canoes.",
+      image: "/images/ezdock/kayak-launch.jpg",
     },
     {
       title: "Dock Anchoring Systems",
       description:
         "Weather-ready anchoring options to help secure your dock in changing conditions.",
+      image: "/images/ezdock/anchoring.jpg",
     },
     {
       title: "Dock Accessories",
       description:
         "Lighting, ladders, boxes, and add-ons to make your dock safer and more practical.",
+      image: "/images/ezdock/accessories.jpg",
     },
     {
       title: "Gangways",
       description:
         "Secure shoreline access with added stability while moving to your floating dock.",
+      image: "/images/ezdock/gangways.jpg",
     },
   ];
 
@@ -85,21 +100,31 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="rounded-2xl bg-sky-900/70 p-6 ring-1 ring-sky-400/30">
-            <h2 className="text-xl font-semibold text-sky-100">
-              Why clients choose EZ Dock style systems
-            </h2>
-            <ul className="mt-4 space-y-3 text-sm text-sky-100">
-              <li>Made in the USA with weather-resistant materials</li>
-              <li>Modular, customizable layouts for any shoreline</li>
-              <li>Low maintenance compared to traditional wood docks</li>
-              <li>Proven performance in harsh weather conditions</li>
-            </ul>
+          <div className="space-y-4">
+            <Image
+              src="/images/ezdock/hero-residential.jpg"
+              alt="Residential floating dock installation"
+              width={1000}
+              height={667}
+              className="h-64 w-full rounded-2xl object-cover ring-1 ring-sky-400/30 md:h-full"
+              priority
+            />
+            <div className="rounded-2xl bg-sky-900/70 p-6 ring-1 ring-sky-400/30">
+              <h2 className="text-xl font-semibold text-sky-100">
+                Why clients choose EZ Dock style systems
+              </h2>
+              <ul className="mt-4 space-y-3 text-sm text-sky-100">
+                <li>Made in the USA with weather-resistant materials</li>
+                <li>Modular, customizable layouts for any shoreline</li>
+                <li>Low maintenance compared to traditional wood docks</li>
+                <li>Proven performance in harsh weather conditions</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-14">
+      <section className="mx-auto w-full max-w-6xl bg-white px-6 py-14">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-slate-900">
             Customizable for Any Application
@@ -134,6 +159,15 @@ export default function Home() {
                 key={product.title}
                 className="rounded-xl border border-slate-200 p-5"
               >
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={1200}
+                    height={800}
+                    className="mb-4 h-40 w-full rounded-lg object-cover"
+                  />
+                ) : null}
                 <h3 className="text-lg font-semibold text-slate-900">
                   {product.title}
                 </h3>
@@ -167,6 +201,30 @@ export default function Home() {
             >
               Talk to the Team
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-4 px-6 py-10 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm font-medium text-slate-700">
+            Cooperative purchasing options available through:
+          </p>
+          <div className="flex items-center gap-6">
+            <Image
+              src="/images/ezdock/sourcewell.png"
+              alt="Sourcewell logo"
+              width={200}
+              height={67}
+              className="h-10 w-auto object-contain"
+            />
+            <Image
+              src="/images/ezdock/buyboard.png"
+              alt="BuyBoard logo"
+              width={200}
+              height={67}
+              className="h-10 w-auto object-contain"
+            />
           </div>
         </div>
       </section>

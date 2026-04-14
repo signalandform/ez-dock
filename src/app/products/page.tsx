@@ -1,8 +1,17 @@
-const products = [
+import Image from "next/image";
+
+type ProductCard = {
+  title: string;
+  description: string;
+  image?: string;
+};
+
+const products: ProductCard[] = [
   {
     title: "Dock Sections",
     description:
       "Create custom dock configurations with sturdy modular dock platform options.",
+    image: "/images/ezdock/dock-sections.jpg",
   },
   {
     title: "Dock Packages",
@@ -13,31 +22,37 @@ const products = [
     title: "PWC Ports",
     description:
       "Innovative drive-on PWC lifts that make launch, docking, and storage quick and repeatable.",
+    image: "/images/ezdock/pwc-ports.jpg",
   },
   {
     title: "EZ BoatPort",
     description:
       "Drive-on, drive-off floating boat docks designed for both beginner and experienced boaters.",
+    image: "/images/ezdock/boatport.jpg",
   },
   {
     title: "Kayak Launch",
     description:
       "Stable entry and docking systems for kayaks and canoes with reliable access at water level.",
+    image: "/images/ezdock/kayak-launch.jpg",
   },
   {
     title: "Dock Anchoring Systems",
     description:
       "Secure, weather-ready anchoring solutions to protect docks in changing shoreline conditions.",
+    image: "/images/ezdock/anchoring.jpg",
   },
   {
     title: "Dock Accessories",
     description:
       "Dock boxes, lighting, ladders, and more to make your waterfront area practical and safe.",
+    image: "/images/ezdock/accessories.jpg",
   },
   {
     title: "Gangways",
     description:
       "Access your dock sections with greater stability and safer shoreline transitions.",
+    image: "/images/ezdock/gangways.jpg",
   },
 ];
 
@@ -63,6 +78,15 @@ export default function ProductsPage() {
             key={product.title}
             className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
           >
+            {product.image ? (
+              <Image
+                src={product.image}
+                alt={product.title}
+                width={1200}
+                height={800}
+                className="mb-4 h-44 w-full rounded-lg object-cover"
+              />
+            ) : null}
             <h2 className="text-xl font-semibold text-slate-900">
               {product.title}
             </h2>
